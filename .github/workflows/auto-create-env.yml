@@ -1,0 +1,19 @@
+name: Auto create environments in your repo
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create environments
+        uses: thijsvtol/create-environments@main
+        with:
+          token: ${{ secrets.Personal_Access_Token }}
+          repo: cicd-58-autocreate-env
+          environments: test,dev
+          required_reviewers: tanvinaxane
+          wait_time: 5
+          protected_branches_only: true
+        
