@@ -11,8 +11,8 @@ jobs:
         uses: thijsvtol/create-environments@main
         with:
           token: ${{ secrets.Personal_Access_Token }}
-          repo: ${{ github.event.repository.name }}
+          repo: ${{ github.repository }}
           environments: test,dev
-          required_reviewers: tanvinaxane
+          required_reviewers: false
           wait_time: 5
           protected_branches_only: true
